@@ -22,17 +22,17 @@
 from factory import NotificationManager
 from service import OrderService
 
-def bootstrap_application():
+def app():
  
     shared_factory = NotificationManager()
     
     # The rest remains exactly the same
     order_service = OrderService(notifier_factory=shared_factory)
-    
-    order_service.checkout_user(username ="MS",preferred_medium="email")
+    pref_med = str(input(" Enter the preferred medium : "))
+    order_service.checkout_user(username ="MS",preferred_medium=pref_med)
 
 if __name__ == "__main__":
-    bootstrap_application()
+    app()
 
 
 

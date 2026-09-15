@@ -8,7 +8,7 @@ class OrderService:
     def checkout_user(self, username: str, preferred_medium: str) -> None:
         print(f"\n Service Layer : inventory and updates ")
         
-        notifier = self.get_notifier(preferred_medium)
+        notifier = self.notifier_factory.get_notification(preferred_medium)
         
         notifier.send(
             message="Your order has been processed Successfully", 

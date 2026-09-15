@@ -7,14 +7,14 @@ class NotificationManager:
 
     def __new__(cls):
         if cls._instance is None:
-            cls._instance = super.__new__(cls)
+            cls._instance = super().__new__(cls)
             cls._instance._cache = {}
         return cls._instance
     
-    def get_notification(self , medium : str , message : str , sender : str) -> Notification:
+    def get_notification(self , medium : str ) -> Notification:
 
         med = medium.strip().lower()
-        if not nfs:
+        if not med:
             raise ValueError(f"Invalid or unsupported medium : {medium}")   
         
         if med in self._cache:
