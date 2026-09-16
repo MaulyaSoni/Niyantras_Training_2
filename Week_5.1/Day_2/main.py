@@ -32,16 +32,14 @@ def main():
         builder
         .add_order(items = 2, shipping_address = "312 , Alakhnanda Complex , MujMahuda" , delivery_notes="Have a good day") 
         .add_discount(discount = 10)
-        .add_priority(True)
-        .add_gift_wrap("Red")
         .build()
     )
-
+    
     order_2 = (
         builder
         .add_order(items = 3, shipping_address = "MSU , Vadodara", delivery_notes = "Wish you a very happy birthday")
-        .add_priority(True)
         .add_gift_wrap("Red")
+        .add_priority(True)
         .build()
     )
 
