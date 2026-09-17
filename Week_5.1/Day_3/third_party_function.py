@@ -1,5 +1,8 @@
+from decorators import logging
+
 class AdvancedShipping:
-    
+
+    @logging    
     def cost_after_tax(self, car_cost: int , tax : int) -> float:
         print(f"Adv -> Calculating cost for {car_cost} and tax : {tax}")
         tax = tax / 100

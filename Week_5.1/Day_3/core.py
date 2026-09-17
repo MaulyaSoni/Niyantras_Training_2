@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from third_party_function import AdvancedShipping
+from decorators import logging
 
 class ShippingService(ABC):
     @abstractmethod
@@ -10,6 +11,7 @@ class ShippingAdapter(ShippingService):
     def __init__(self, sdk: AdvancedShipping):
         self.sdk = sdk
 
+    @logging
     def get_rate(self, car_cost: float, tax: str) -> float:
 
         print("converting price of car from USD to INR")
@@ -25,6 +27,7 @@ class InsuranceDecorator(ShippingService):
     def __init__(self, service: ShippingService):
         self.service = service
 
+    @logging
     def get_rate(self, car_cost: float, tax: int) -> float:
 
         base_rate = self.service.get_rate(car_cost, tax)

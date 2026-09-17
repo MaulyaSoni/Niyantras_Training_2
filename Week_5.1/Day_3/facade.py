@@ -1,11 +1,13 @@
 from core import ShippingService
 from third_party_function import AdvancedShipping
+from decorators import logging
 
 class ShippingFacade:
     def __init__(self, service : ShippingService , adv : AdvancedShipping):
         self.service = service
         self.adv = adv
 
+    @logging
     def final(self, car_cost : float, tax: int) -> dict:
         print("\n...Facade Orchaestration...")
          
