@@ -13,12 +13,12 @@ class ShippingAdapter(ShippingService):
     def get_rate(self, car_cost: float, tax: str) -> float:
 
         print("converting price of car from USD to INR")
-        
+
         car_cost = int(car_cost * 92)
 
         print("Cost in INR : ",car_cost)
-        print("Interface transformation: Calls 'calculate_total_cost' instead of 'get_rate' ")
         
+        # print("Interface transformation: Calls 'calculate_total_cost' instead of 'get_rate' ")
         return self.sdk.cost_after_tax(car_cost, tax)
 
 class InsuranceDecorator(ShippingService):
@@ -29,6 +29,6 @@ class InsuranceDecorator(ShippingService):
 
         base_rate = self.service.get_rate(car_cost, tax)
         
-        print("[Decorator] Injecting premium insurance surcharges.")
+        print("Decorator -> Adding the Insurance amt to the final bill")
         insurance_fee = 12000
         return base_rate + insurance_fee
