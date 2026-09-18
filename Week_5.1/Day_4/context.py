@@ -19,7 +19,12 @@ class Cart:
 
     #Subject Observer , methods of add/remove observer
     def add_obs(self , obs : CartObserver) -> None:
+        print(obs.status())
         self.obs.append(obs)
     
     def remove_obs(self , obs : CartObserver) -> None:
         self.obs.remove(obs)
+    
+    def notify_observers(self) -> None:
+        for observer in self.obs:
+            observer.status()

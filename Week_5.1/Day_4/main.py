@@ -8,18 +8,19 @@ def main():
 
     # val = int(input("Enter 0 for Classical Way and 1 for Pythonic way :"))
     # if val == 0:
+    items = 1
+    total = 1000
     print("\n-------Classes Way (Classical) :------")
-    cart_obj = Cart(RegularCustomer(1,1000))
+    cart_obj = Cart(RegularCustomer(items,total))
     entry = OrderEntry()
     email = EmailNotify()
     stats = StatsUpdate()
-    
+    print("entry : ",entry)
     cart_obj.add_obs(entry)
     cart_obj.add_obs(email)
-    print(cart_obj.add_obs(stats))
     
     print(f"Customer : {cart_obj.show_customer_type()} , Bill :{cart_obj.display_bill()}")
-    
+    cart_obj.add_obs(stats)
     cart_obj.set_customer_type(MemberCustomer(1,1000))
     
     print(f"Customer : {cart_obj.show_customer_type()} , Bill :{cart_obj.display_bill()}")
@@ -27,10 +28,9 @@ def main():
     cart_obj.set_customer_type(VIPCustomer(1,1000))
     print(f"Customer : {cart_obj.show_customer_type()} , Bill :{cart_obj.display_bill()}")
 
-      
-    cart_obj.remove_obs(entry)
-    cart_obj.remove_obs(email)
-    cart_obj.remove_obs(stats)
+    # cart_obj.remove_obs(entry)
+    # cart_obj.remove_obs(email)
+    # cart_obj.remove_obs(stats)
     
     # elif val == 1:
     print("\n-------Pythonic Way-------")
