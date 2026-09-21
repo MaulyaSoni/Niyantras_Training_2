@@ -7,7 +7,7 @@ def main():
 
     amount = 1000
     bank_tr = BankTransfer()
-    payment_process(bank_tr , 1000)
+    payment_process(bank_tr , amount)
    
     pp = PayPal()
     payment_process(pp , amount)
