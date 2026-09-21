@@ -1,13 +1,13 @@
-from interface import Bill
-from strategies import RegularCustomer ,MemberCustomer , VIPCustomer
+from strategy_interface import Bill
+from concrete_strategies import RegularCustomer ,MemberCustomer , VIPCustomer
 from observer import CartObserver
 
 class Cart:
     def __init__(self , customer_type: Bill):
         self.customer_type = customer_type
-        self.obs: List[CartObserver] = []
+   
 
-    #Concrete Strategies 
+    #Concrete concrete_strategies 
     def set_customer_type(self , customer_type : Bill):
         self.customer_type = customer_type
 
@@ -16,15 +16,3 @@ class Cart:
 
     def display_bill(self) :
         return self.customer_type.calc_discount()
-
-    #Subject Observer , methods of add/remove observer
-    def add_obs(self , obs : CartObserver) -> None:
-        print(obs.status())
-        self.obs.append(obs)
-    
-    def remove_obs(self , obs : CartObserver) -> None:
-        self.obs.remove(obs)
-    
-    def notify_observers(self) -> None:
-        for observer in self.obs:
-            observer.status()

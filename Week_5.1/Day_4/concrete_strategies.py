@@ -1,4 +1,4 @@
-from interface import Bill
+from strategy_interface import Bill
 
 class RegularCustomer(Bill):
     def __init__(self, items , total):
