@@ -1,7 +1,7 @@
 from interface import Payment
 from strategies import BankTransfer , PayPal , CreditCard
 from process import payment_process
-from add_payment_type import Crypto
+from crypto_payment import Crypto
 
 def main():
 
