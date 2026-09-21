@@ -12,7 +12,6 @@ def main():
     print("\n-------Classes Way (Classical) :------")
 
     log_obj = SubjectLogger()
-    
     cart_obj = Cart(RegularCustomer(items,total))
 
     entry = OrderEntry()
@@ -36,10 +35,7 @@ def main():
     log_obj.remove_obs(entry)
     log_obj.remove_obs(email)
     log_obj.remove_obs(stats)
-    
-    log_obj.notify_observers()
-    
-    # elif val == 1:
+     
     print("\n-------Pythonic Way-------")
     customer = switch_customer_type("regular")
     print(get_bill(3 , 1000 , customer))
