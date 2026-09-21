@@ -1,6 +1,7 @@
 from interface import Payment
 from strategies import BankTransfer , PayPal , CreditCard
 from process import payment_process
+from add_payment_type import Crypto
 
 def main():
 
@@ -14,5 +15,10 @@ def main():
     card = CreditCard()
     payment_process(card , amount)
     
+    # Only register a new handler 
+    crp = Crypto()
+    payment_process(crp , amount)
+
+
 if __name__ == "__main__":
     main()
