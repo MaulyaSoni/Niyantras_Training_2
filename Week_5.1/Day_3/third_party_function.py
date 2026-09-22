@@ -1,5 +1,6 @@
 from decorators import logging
 
+# Adaptee
 class AdvancedShipping:
 
     @logging    

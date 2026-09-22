@@ -2,11 +2,13 @@ from abc import ABC, abstractmethod
 from third_party_function import AdvancedShipping
 from decorators import logging
 
+# target , interface
 class ShippingService(ABC):
     @abstractmethod
     def get_rate(self, car_cost: float, tax: int) -> float:
         pass
 
+# Adapters
 class ShippingAdapter(ShippingService):
     def __init__(self, sdk: AdvancedShipping):
         self.sdk = sdk
