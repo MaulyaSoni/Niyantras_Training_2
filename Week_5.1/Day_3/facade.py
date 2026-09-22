@@ -15,10 +15,10 @@ class ShippingFacade:
         final_cost = self.service.get_rate(car_cost , tax)
         
         result = {
-            "cost_of_car": car_cost,
+            "cost_of_car_usd": car_cost,
             "tax": tax,
-            "cost_of_car_after_tax":cost_with_tax,
-            "cost_with_insurance": final_cost
+            "cost_of_car_after_tax_inr":cost_with_tax,
+            "cost_with_insurance_inr": final_cost
         }
 
         return result

@@ -4,7 +4,7 @@ from decorators import logging
 
 class ShippingService(ABC):
     @abstractmethod
-    def get_rate(self, car_cost: float, tax: str) -> float:
+    def get_rate(self, car_cost: float, tax: int) -> float:
         pass
 
 class ShippingAdapter(ShippingService):
@@ -12,7 +12,7 @@ class ShippingAdapter(ShippingService):
         self.sdk = sdk
 
     @logging
-    def get_rate(self, car_cost: float, tax: str) -> float:
+    def get_rate(self, car_cost: float, tax: int) -> float:
 
         print("converting price of car from USD to INR")
 

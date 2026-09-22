@@ -17,19 +17,23 @@ class OrderBuilder:
 
         return self
 
-    def add_order(self, items : int, shipping_address : str, delivery_notes : str):
+    def add_order(self, items : int, shipping_address : str):
         self.items =  items
         self.shipping_address = shipping_address
-        self.delivery_notes = delivery_notes
 
         return self
 
+    def add_delivery_notes(self  , delivery_notes : str):
+        self.delivery_notes = delivery_notes
+
+        return self
+        
     def add_discount(self , discount : int):
         self.discount = discount
 
         return self
     
-    def add_gift_wrap(self , gift_wrap_colour : bool ):
+    def add_gift_wrap(self , gift_wrap_colour : str ):
         self.gift_wrap_colour= gift_wrap_colour
 
         return self 
@@ -44,7 +48,8 @@ class OrderBuilder:
       
         if self.items < 1:
             raise ValueError(f"Items can't be 0 or less than it")
-        if 0 > self.discount > 100:
+
+        if not 0 <= self.discount <= 100:
             raise ValueError("Discount can't be have this value")
         
         details = Order(

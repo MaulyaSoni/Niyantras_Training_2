@@ -7,15 +7,15 @@ def calculate_discount(total , discount):
 
 def regular_customer(items , total):
     result  = calculate_discount(total , 5)
-    return ("Regular Customer : ",result)
+    return ("Regular Customer : ",result ,  "items :", items)
 
 def member_customer(items , total):
     result  = calculate_discount(total , 10)
-    return ("Member Customer : ",result)
+    return ("Member Customer : ",result ,  "items :", items)
 
 def vip_customer(items , total):
     result  = calculate_discount(total , 15)
-    return ("VIP Customer : ",result)
+    return ("VIP Customer : ",result , "items :", items)
 
 def switch_customer_type(val : str) ->str :
     if val.lower() == "regular":
@@ -24,6 +24,8 @@ def switch_customer_type(val : str) ->str :
         customer = "member"
     elif val.lower() == "vip":
         customer = "vip"
+    else:
+        return "Invalid Input of Customer type"
     return customer
 
 def get_bill(items , total , customer):
@@ -33,6 +35,8 @@ def get_bill(items , total , customer):
         result = member_customer(items , total)    
     elif customer == "vip":
         result = vip_customer(items , total)
+    else:
+        return "Invalid Input of Customer type"
     
     return (f"{customer} :- {result}")
 

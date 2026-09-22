@@ -1,6 +1,6 @@
 from strategy_interface import Bill
 from concrete_strategies import RegularCustomer ,MemberCustomer , VIPCustomer
-from observer import CartObserver
+
 
 class Cart:
     def __init__(self , customer_type: Bill):

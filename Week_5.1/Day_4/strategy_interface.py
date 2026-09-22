@@ -14,4 +14,4 @@ class Bill(ABC):
         disc_temp = self.discount / 100
         disc_temp *= self.total
         discounted_total = self.total - disc_temp
-        return discounted_total 
+        return discounted_total , self.items

@@ -30,14 +30,15 @@ def main():
     builder = OrderBuilder(customer_name="Siri")
     order_1 = (
         builder
-        .add_order(items = 2, shipping_address = "312 , Alakhnanda Complex , MujMahuda" , delivery_notes="Have a good day") 
+        .add_order(items = 2, shipping_address = "312 , Alakhnanda Complex , MujMahuda") 
         .add_discount(discount = 10)
+        .add_delivery_notes(delivery_notes="Have a good day")
         .build()
     )
     
     order_2 = (
         builder
-        .add_order(items = 3, shipping_address = "MSU , Vadodara", delivery_notes = "Wish you a very happy birthday")
+        .add_order(items = 3, shipping_address = "MSU , Vadodara")
         .add_gift_wrap("Red")
         .add_priority(True)
         .build()
