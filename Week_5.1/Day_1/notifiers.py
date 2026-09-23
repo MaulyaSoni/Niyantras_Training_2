@@ -1,5 +1,5 @@
 from core import Notification
-
+# concrete products , subclasses
 class EmailNotifier(Notification):
     def send(self , message : str , sender : str):
         print(f"sent the message from {sender} in form of email")

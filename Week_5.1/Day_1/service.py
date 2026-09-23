@@ -1,5 +1,6 @@
 from factory import NotificationFactory
 
+#service layer , code not knowing anything about the subclass
 class OrderService:
   
     def __init__(self, notifier_factory: NotificationFactory):

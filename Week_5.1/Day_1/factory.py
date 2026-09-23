@@ -1,6 +1,7 @@
 from core import Notification
 from notifiers import EmailNotifier , SMSNotifier , PushNotifier
 
+#Creator Factory
 class NotificationFactory:
 
     _instance = None
