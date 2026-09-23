@@ -16,6 +16,7 @@ def main():
     obj_log.status_log("shipping adapter triggers")
 
     insured_shipping = InsuranceDecorator(adapted_shipping)
+
     obj_log = LogginDecorator(insured_shipping)
     obj_log.status_log("insurance decorator triggers")
 

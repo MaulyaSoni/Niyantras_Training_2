@@ -29,7 +29,7 @@ class InsuranceDecorator(ShippingService):
     def __init__(self, service: ShippingService):
         self.service = service
 
-    @logging
+    # @logging
     def get_rate(self, car_cost: float, tax: int) -> float:
 
         base_rate = self.service.get_rate(car_cost, tax)
@@ -37,3 +37,4 @@ class InsuranceDecorator(ShippingService):
         print("Decorator -> Adding the Insurance amt to the final bill")
         insurance_fee = 12000
         return base_rate + insurance_fee
+

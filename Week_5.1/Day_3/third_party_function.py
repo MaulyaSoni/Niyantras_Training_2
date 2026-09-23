@@ -3,7 +3,7 @@ from decorators import logging
 # Adaptee
 class AdvancedShipping:
 
-    @logging    
+    # @logging    
     def cost_after_tax(self, car_cost: int , tax : int) -> float:
         print(f"Adv -> Calculating cost for {car_cost} and tax : {tax}")
         tax = tax / 100
