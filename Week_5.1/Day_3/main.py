@@ -1,22 +1,30 @@
 from third_party_function import AdvancedShipping
 from core import ShippingService, InsuranceDecorator , ShippingAdapter
 from facade import ShippingFacade
+from decorators import LogginDecorator
 
 def main():
     print("Without facade and the decorator class approach")
 
     obj = AdvancedShipping()
-    adapted_shipping = ShippingAdapter(obj)
-    insured_shipping = InsuranceDecorator(adapted_shipping)
 
     car_cost = int(input("Enter the cost of car in USD :- "))
     tax = int(input("\nEnter the percentage of tax :-"))
+    
+    adapted_shipping = ShippingAdapter(obj)
+    obj_log = LogginDecorator(adapted_shipping)
+    obj_log.status_log("shipping adapter triggers")
+
+    insured_shipping = InsuranceDecorator(adapted_shipping)
+    obj_log = LogginDecorator(insured_shipping)
+    obj_log.status_log("insurance decorator triggers")
+
     final_cost =  insured_shipping.get_rate(car_cost, tax)
     
     result = {
-        "cost_of_car": car_cost,
+        "cost_of_car_usd": car_cost,
         "tax": tax,
-        "cost_of_car_after_tax":final_cost 
+        "cost_of_car_after_tax_inr":final_cost 
     }
 
     print(result)
