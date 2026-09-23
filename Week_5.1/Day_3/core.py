@@ -22,7 +22,6 @@ class ShippingAdapter(ShippingService):
 
         print("Cost in INR : ",car_cost)
         
-        # print("subject_interface transformation: Calls 'calculate_total_cost' instead of 'get_rate' ")
         return self.sdk.cost_after_tax(car_cost, tax)
 
 class InsuranceDecorator(ShippingService):
