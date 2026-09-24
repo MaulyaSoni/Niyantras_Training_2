@@ -6,6 +6,7 @@ from crypto_payment import Crypto
 def main():
 
     amount = 1000
+    
     bank_tr = BankTransfer()
     payment_process(bank_tr , amount)
    
