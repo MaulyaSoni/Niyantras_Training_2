@@ -1,4 +1,4 @@
-from core import ShippingService
+from interface import ShippingService
 from third_party_function import AdvancedShipping
 from decorators import logging
 

@@ -1,7 +1,9 @@
 from third_party_function import AdvancedShipping
-from core import ShippingService, InsuranceDecorator , ShippingAdapter
+from interface import ShippingService
+from adapter import ShippingAdapter
 from facade import ShippingFacade
 from decorators import LogginDecorator
+from target import InsuranceDecorator
 
 def main():
     print("Without facade and the decorator class approach")
@@ -9,7 +11,7 @@ def main():
     obj = AdvancedShipping()
 
     car_cost = int(input("Enter the cost of car in USD :- "))
-    tax = int(input("\nEnter the percentage of tax :-"))
+    tax = int(input("Enter the percentage of tax :-"))
     
     adapted_shipping = ShippingAdapter(obj)
     obj_log = LogginDecorator(adapted_shipping)
@@ -39,7 +41,7 @@ def main():
     insured_ship = InsuranceDecorator(adapted_ship)
 
     car_cost_1 = int(input("Enter the cost of car in USD :- "))
-    tax1 = int(input("\nEnter the percentage of tax :-"))
+    tax1 = int(input("Enter the percentage of tax :-"))
   
     facade_orch = ShippingFacade(insured_ship, obj1)
 
