@@ -13,7 +13,7 @@ def main():
 
    
     cart_obj = Cart(RegularCustomer(items,total))
-    log_obj = SubjectLogger(Bill )
+    log_obj = SubjectLogger(cart_obj)
     entry = OrderEntry()
     email = EmailNotify()
     stats = StatsUpdate()
@@ -21,22 +21,20 @@ def main():
     log_obj.add_obs(entry)
     log_obj.add_obs(email)
     log_obj.add_obs(stats)
-    print(f"Customer : {cart_obj.show_customer_type()} , Bill :{cart_obj.display_bill()}")
-       
+
+    print(f"\nCustomer : {cart_obj.show_customer_type()} , Bill :{cart_obj.display_bill()}")
+    log_obj.notify_observers()
+
     cart_obj.set_customer_type(MemberCustomer(13,10000))
-    print(f"Customer : {cart_obj.show_customer_type()} , Bill :{cart_obj.display_bill()}")
-       
+
+    print(f"\nCustomer : {cart_obj.show_customer_type()} , Bill :{cart_obj.display_bill()}")
+    log_obj.notify_observers()
+   
     cart_obj.set_customer_type(VIPCustomer(1,10000))
-    print(f"Customer : {cart_obj.show_customer_type()} , Bill :{cart_obj.display_bill()}")
-    
-    # log_obj.notify_observers()
 
-    # log_obj.remove_obs(entry)
-    # log_obj.remove_obs(email)
-    # log_obj.remove_obs(stats)
-
-    # log_obj.notify_observers()
-     
+    print(f"\nCustomer : {cart_obj.show_customer_type()} , Bill :{cart_obj.display_bill()}")
+    log_obj.notify_observers()
+                                                          
     print("\n-------Pythonic Way-------")
     customer = switch_customer_type("regular")
     print(get_bill(3 , 1000 , customer))

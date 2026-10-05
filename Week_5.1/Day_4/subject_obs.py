@@ -1,11 +1,11 @@
 from subject_interface import Subject
 from observer import CartObserver
-from strategy_interface import Bill
+from context import Cart
 class SubjectLogger(Subject):
 
-    def __init__(self , bill_obj ):
-        self.obs: List[CartObserver] = []
-        self.bill_obj :bill_obj
+    def __init__(self , cart_obj : Cart):
+        self.obs: list[CartObserver] = []
+        self.cart_obj = cart_obj
 
 
     def add_obs(self , obs : CartObserver) -> None:
@@ -16,7 +16,7 @@ class SubjectLogger(Subject):
         self.obs.remove(obs)
     
     def notify_observers(self) -> None:
-        customer = self.bill_obj.show_customer_type()
-        bill = self.bill_obj.display_bill()
+        customer = self.cart_obj.show_customer_type()
+        bill = self.cart_obj.display_bill()
         for observer in self.obs:
-            observer.update(self , customer , bill)
+            observer.update(customer , bill)
