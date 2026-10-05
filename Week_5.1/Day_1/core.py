@@ -3,6 +3,6 @@ from abc import ABC , abstractmethod
 class Notification(ABC):
 
     @abstractmethod
-    def send(self , message : str , sender : str):
+    def send(self ,  receiptant : str ,message : str ):
         pass
     

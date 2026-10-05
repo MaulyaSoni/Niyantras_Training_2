@@ -1,13 +1,16 @@
 from factory import NotificationFactory
-from service import OrderService
+from service import ServiceNotification
 
 def main():
  
-    shared_factory = NotificationFactory()
-    order_service = OrderService(notifier_factory=shared_factory)
-    #providing service layer 
-    pref_med = str(input(" Enter the preferred medium : "))
-    order_service.checkout_user(username ="MS",preferred_medium=pref_med)
+    factory = NotificationFactory()
+    notification = ServiceNotification(notifier_factory=factory)
+
+    pref_med = str(input("Enter the preferred medium : "))
+    receiptant = str(input("Enter the receiptant name : "))
+    message = str(input("Enter message :"))
+    
+    notification.send_notification(pref_med , receiptant , message)
 
 if __name__ == "__main__":
     main()

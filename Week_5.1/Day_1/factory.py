@@ -1,35 +1,38 @@
 from core import Notification
 from notifiers import EmailNotifier , SMSNotifier , PushNotifier
-
+from typing import Dict
 #Creator Factory
 class NotificationFactory:
 
     _instance = None
-
+    _cache : Dict[str , Notification] = {}
+    
     def __new__(cls):
         if cls._instance is None:
-            cls._instance = super().__new__(cls)
+            cls._instance = super(NotificationFactory , cls).__new__(cls)
+            cls._instance._classes = {
+                "sms":SMSNotifier,
+                "email":EmailNotifier,
+                "push":PushNotifier
+            }
             cls._instance._cache = {}
+
         return cls._instance
     
-    def get_notification(self , medium : str ) -> Notification:
+    def get_medium(self , medium : str ) -> Notification:
 
-        med = medium.strip().lower()
-        if not med:
-            raise ValueError(f"Invalid or unsupported medium : {medium}")   
+        med = medium.lower()
         
-        if med in self._cache:
-            return self._cache[med]
+        if med not in self._cache:
+            sender_cls= self._classes.get(med)
+            if not sender_cls:
+                raise ValueError(f"{sender_cls} , Unsupported medium for sending notifications")
 
-        if med == "email":
-            notifier = EmailNotifier()
-        elif med == "push":
-            notifier = PushNotifier()
-        elif med == "sms":
-            notifier = SMSNotifier()
+            # Lazy init
+            print(f"Cache miss{sender_cls}, Creating new instance for cache ")
+            self._cache[med] = sender_cls()
+
         else:
-            raise ValueError("Unknown notification") 
-    
-        self._cache[med] = notifier
-
-        return notifier
+            print(f"Cache hit , resusing the {med} for process")
+        
+        return self._cache[med]

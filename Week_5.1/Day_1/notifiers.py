@@ -1,13 +1,13 @@
 from core import Notification
 # concrete products , subclasses
 class EmailNotifier(Notification):
-    def send(self , message : str , sender : str):
-        print(f"sent the message from {sender} in form of email")
+    def send(self , message : str , receiptant : str):
+        print(f"{message} from {receiptant} in form of email")
 
 class SMSNotifier(Notification):
-    def send(self , message : str , sender : str):
-        print(f"sent the message from {sender} in form of sms")
+    def send(self , message : str , receiptant : str):
+        print(f"{message} from {receiptant} in form of sms")
         
 class PushNotifier(Notification):
-    def send(self , message : str , sender : str):
-        print(f"sent the message from {sender} in form of push notification")
+    def send(self , message : str , receiptant : str):
+        print(f"{message} from {receiptant} in form of push notification")
