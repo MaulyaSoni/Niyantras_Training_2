@@ -4,18 +4,12 @@ class OrderBuilder:
     
     def __init__(self, customer_name: str):
         self.customer_name: str = customer_name
-        self.reset()
-
-    def reset(self):
-        #default values 
         self.items: int = 0
         self.shipping_address: str = ""
         self.delivery_notes: str = ""
         self.discount: int = 0             
         self.gift_wrap_colour: str = "None"  
-        self.priority_flag: bool = False   
-
-        return self
+        self.priority_flag: bool = False  
 
     def add_order(self, items : int, shipping_address : str):
         self.items =  items
@@ -62,5 +56,5 @@ class OrderBuilder:
             priority_flag = self.priority_flag
         )
         
-        self.reset()
+      
         return details
