@@ -24,10 +24,10 @@ def main():
     print(f"Customer : {cart_obj.show_customer_type()} , Bill :{cart_obj.display_bill()}")
     
     
-    cart_obj.set_customer_type(MemberCustomer(1,1000))
+    cart_obj.set_customer_type(MemberCustomer(13,10000))
     print(f"Customer : {cart_obj.show_customer_type()} , Bill :{cart_obj.display_bill()}")
 
-    cart_obj.set_customer_type(VIPCustomer(1,1000))
+    cart_obj.set_customer_type(VIPCustomer(1,10000))
     print(f"Customer : {cart_obj.show_customer_type()} , Bill :{cart_obj.display_bill()}")
     
     log_obj.notify_observers()
@@ -42,7 +42,7 @@ def main():
     customer = switch_customer_type("member")
     print(get_bill(3 , 1000 , customer))
     customer = switch_customer_type("vip")
-    print(get_bill(3 , 1000 , customer))
+    print(get_bill(3 , 10000 , customer))
 
     
 if __name__ == "__main__":
