@@ -3,5 +3,5 @@ from abc import ABC , abstractmethod
 class CartObserver(ABC):
     
     @abstractmethod
-    def update(self):
+    def update(self , customer : str , bill : int):
         pass
