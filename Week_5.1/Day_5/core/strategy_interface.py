@@ -1,6 +1,6 @@
 from abc import ABC , abstractmethod
 
-class Payment(ABC):
+class PaymentStrategy(ABC):
 
     @abstractmethod
     def payment_type(self , amount : int):
