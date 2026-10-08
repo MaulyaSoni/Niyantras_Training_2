@@ -11,9 +11,6 @@ class ServiceNotification:
         
         notifier = self.notifier_factory.get_medium(preferred_medium)
         
-        notifier.send(
-            receiptant=receiptant,
-            message=message   
-        )
+        notifier.send(receiptant,message)
         print("notification sent from send_notification")
 

@@ -26,13 +26,13 @@ class NotificationFactory:
         if med not in self._cache:
             sender_cls= self._classes.get(med)
             if not sender_cls:
-                raise ValueError(f"{sender_cls} , Unsupported medium for sending notifications")
+                raise ValueError(f"{med} , Unsupported medium for sending notifications")
 
             # Lazy init
             print(f"Cache miss{sender_cls}, Creating new instance for cache ")
             self._cache[med] = sender_cls()
 
         else:
-            print(f"Cache hit , resusing the {med} for process")
+            print(f"Cache hit , reusing the {med} for process")
         
         return self._cache[med]
