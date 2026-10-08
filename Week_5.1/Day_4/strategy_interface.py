@@ -10,8 +10,8 @@ class Bill(ABC):
         pass
     
     def discount(self,discount):
-        self.discount = discount
-        disc_temp = self.discount / 100
+        self.discount_pct = discount
+        disc_temp = self.discount_pct / 100
         disc_temp *= self.total
         discounted_total = self.total - disc_temp
         return discounted_total , self.items
