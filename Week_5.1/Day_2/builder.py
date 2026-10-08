@@ -3,7 +3,10 @@ from core import Order
 class OrderBuilder:
     
     def __init__(self, customer_name: str):
-        self.customer_name: str = customer_name
+        self.customer_name = customer_name
+        self.reset()
+    
+    def reset(self):
         self.items: int = 0
         self.shipping_address: str = ""
         self.delivery_notes: str = ""
@@ -56,5 +59,5 @@ class OrderBuilder:
             priority_flag = self.priority_flag
         )
         
-      
+        self.reset()
         return details
