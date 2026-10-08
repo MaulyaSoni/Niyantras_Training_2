@@ -17,8 +17,7 @@ def main():
     execute_strategy(payment_type , amount)    
     
     # new payment type CRYPTO
-    PaymentFactory.register("crypto",CryptoPayment)
-    
+     
     amount = int(input("Enter the amount you want to send :"))    
     payment_type = str(input("Enter the preferred payment_type : "))
     
