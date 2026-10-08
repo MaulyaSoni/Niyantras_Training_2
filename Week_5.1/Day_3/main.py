@@ -27,7 +27,7 @@ def main():
     result = {
         "cost_of_car_usd": car_cost,
         "tax": tax,
-        "cost_of_car_after_tax_inr":final_cost 
+        "cost_of_car_after_tax_usd":final_cost 
     }
 
     print(result)

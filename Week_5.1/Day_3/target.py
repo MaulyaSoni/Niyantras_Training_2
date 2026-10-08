@@ -5,7 +5,7 @@ class InsuranceDecorator(ShippingService):
     def __init__(self, service: ShippingService):
         self.service = service
 
-    # @logging
+    @logging
     def get_rate(self, car_cost: float, tax: int) -> float:
 
         base_rate = self.service.get_rate(car_cost, tax)

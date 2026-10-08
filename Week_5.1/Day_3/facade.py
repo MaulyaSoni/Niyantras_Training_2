@@ -17,7 +17,7 @@ class ShippingFacade:
         result = {
             "cost_of_car_usd": car_cost,
             "tax": tax,
-            "cost_of_car_after_tax_inr":cost_with_tax,
+            "cost_of_car_after_tax_usd":cost_with_tax,
             "cost_with_insurance_inr": final_cost
         }
 
