@@ -5,4 +5,4 @@ class PaymentProcessor:
         self.pay = pay
 
     def payment_process(self , amount : int):
-        return self.pay.payment_type(amount)
+        return self.pay.payment_type_choice(amount)
